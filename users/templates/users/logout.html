@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h3 class="white-important">You've been logged out</h3>
+    <span>
+        <img src="{% static 'blog/platformlogo.png' %}" width="300" height="400">
+    </span>
+    <div class="pt-3">
+        <small class="text-muted">
+            Login again? <a class=" btn btn-primary ml-2" href="{% url 'login' %}">Login</a>
+        </small>
+    </div>
+</div>
+<br>
+<br>
+{% endblock content %}

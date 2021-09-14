@@ -1,0 +1,129 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+        @media (max-width:700px) {
+            .no-padding{
+                min-width: 100%;
+            }
+        }
+</style>
+<div class="container">
+    <div class="profile-section">
+        <h3 class="white-important p-2" style="text-align: center;">
+            Update Profile
+        </h3>
+        <article class="media content-section" style="height: 140px; width: 100%">
+            {%  if user_profile != None %}
+            <div class="mt-2 d-flex full-width align-items-center">
+                <img class="rounded-circle mr-3 img-fluid" style="width: 90px; height: 90px;"
+                    src="{{ user_profile.profile.image.url }}">
+                <div>
+                    <h4 style="text-align: left" class="white-important">
+                        {{ user_profile.username }}
+                    </h4>
+                    <h6 style="text-align: left" class="email-profile">
+                        {{ user.email }}
+                    </h6>
+                    
+                </div>
+            </div>
+            {%  else %}
+            <div class="mt-2 d-flex full-width align-items-center">
+                <img class="rounded-circle mr-3" style="width: 90px; height: 90px;"
+                    src="{{ user.profile.image.url }}">
+                <div>
+                    <h4 style="text-align: left" class="white-important">
+                        {{ user.username }}
+                    </h4>
+                    <h6 style="text-align: left" class="email-profile">
+                        {{ user.email }}
+                    </h6>
+                    
+                </div>
+            </div>
+            {%  endif %}
+        </article>
+        <article class="media content-section">
+            <div class="row full-width pl-2">
+                <div class="col-6">
+                    Followers
+                </div>
+                <div class="col-6">
+                    Following
+                </div>
+                {%  if user_profile != None %}
+                <div class="col-6">
+                    <h3 class="white-important follow-click">
+                        <a href="{% url 'user-followers' user_profile.username %}">
+                            {{ user_profile.profile.followers }}
+                        </a>
+                    </h3>
+                </div>
+                <div class="col-6">
+                    <a href="{% url 'user-follows' user_profile.username %}">
+                        <h3 class="white-important follow-click">
+                            {{ user_profile.profile.following }}
+                        </h3>
+                    </a>
+                </div>
+                {% else %}
+                <div class="col-6">
+                    <a href="{% url 'user-followers' user.username %}">
+                        <h3 class="white-important follow-click">
+                            {{ user.profile.followers }}
+                        </h3>
+                    </a>
+                </div>
+
+                <a href="{% url 'user-follows' user.username %}">
+                    <div class="col-6">
+                        <h3 class="white-important follow-click">
+                            {{ user.profile.following }}
+                        </h3>
+                    </div>
+                </a>
+                {%  endif %}
+            </div>
+        </article>
+
+        <div class="d-flex">
+            {% if user_profile is None %}
+            <div style="margin-left: 40px">
+                <a class="btn btn-sm btn-outline-primary mb-4 mr-3 " href="{% url 'post-create' %}">
+                    Post
+                </a>
+            </div>
+            {% endif %}
+            {%  if user_profile is not None and user_profile.id != user.id  and user.username != '' %}
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <button style="margin-left: 18px" class="btn btn-sm btn-outline-primary"
+                        name="{% if can_follow %}follow{% else %}unfollow{% endif %}" type="submit">
+                        {% if can_follow %}
+                        FOLLOW
+                        {% else %}
+                        UNFOLLOW
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <form class="col-6 no-padding" method="POST" enctype="multipart/form-data" style="width: 100%;">
+        {% csrf_token %}
+        <fieldset class="form-group" >
+            {{ uform | crispy }}
+            {{ pform | crispy }}
+        </fieldset>
+        <div class="form-group" style="text-align: center;">
+            <button class="btn btn-outline-primary" type="submit">Update Profile</button>
+        </div>
+    </form>
+    <br>
+    <br>
+</div>
+{% endblock content %}

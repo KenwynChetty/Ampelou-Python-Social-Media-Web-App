@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %} AMPELOU | ADMIN {% endblock %}
+
+{% block extrastyle %}
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<link rel="stylesheet" type="text/css" href="{%static 'blog/admin_color.css' %}" />
+<style>
+    body {
+        background-image: url('https://cdn.statically.io/img/wallpaperaccess.com/full/1288357.jpg') !important;
+        height: 100% no-repeat;
+        width: 100% no-repeat;
+    }
+
+    .module h2,
+    .module caption,
+    .inline-group h2 {
+        font-size: 20px;
+    }
+</style>
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'blog-home' %}"><img src="{% static 'blog/logo.png' %}" width="125" height="75"></a>
+    ADMIN</h1>
+{% endblock %}
+
+{% block nav-global %}AMPELOU ADMIN{% endblock %}

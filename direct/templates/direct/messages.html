@@ -1,0 +1,141 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create two unequal columns that floats next to each other */
+    .column {
+      float: left;
+      padding: 10px;
+      min-height: 100%; /* Should be removed. Only for demonstration */
+    }
+    
+    .left {
+      width: 25%;
+    }
+    
+    .right {
+      width: 75%;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .alert{display: none;}
+
+.container-message {
+  border: 2px solid #dedede;
+  background-color: #90909017;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container-message::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container-message .img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container-message .img .right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+.hide{
+  display:none;
+}
+@media (max-width:700px){
+    .left{
+        width:100%;
+        display:inline-block;
+        overflow: auto;
+    }
+    .right{
+        width: 100%;
+        
+    }
+    .d-flex{
+      min-width:100%;
+    }
+}
+</style>
+
+<div class="row">
+    <div class="column left" style="background-color:black;">
+    <strong style="margin-bottom: 20px;"><a class='btn btn-warning' style="min-width:100%; text-align:center;"href="{% url 'usersearch' %}"><i class="fa fa-comments"> New Chat</i></a> </strong>
+        <br>
+        {% for message in messages %}
+        <br>
+        <a class="{% if active_direct == message.user.username %}is-active{% endif %}" href="{% url 'directs' message.user.username %}">
+            <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
+                <img class="rounded-circle mr-2" style="width: 40px; height: 40px;" src="{{ message.user.profile.image.url }}">
+                <a class="mr-2 white-important" href="{% url 'directs' message.user.username %}">
+                    {{ message.user.first_name }} {{ message.user.last_name }}
+                </a>
+            </div>
+        </a>
+        {% endfor %}
+        
+    </div>
+    <div class="column right" style="background-color:rgb(0, 0, 0);">
+        
+        {% for direct in directs %}
+        <div class="container-message">
+            <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
+                <img class="img" style="width: 50px; height: 50px;" src="{{direct.sender.profile.image.url}}">
+                <a class="mr-2" style="color: white;">
+                    @{{ direct.sender.username }}
+                </a>
+            </div>
+            <div class="mb-2" style="width: 100%; height: 1px; background-color: rgba(9, 206, 2, 0.925); margin-top: 10px;"></div>
+            <p style="color: white; padding-left: 20px;">{{ direct.body }}</p>
+            <span class="time-right">{{ direct.date|date:'N d G:i'}}</span>
+          </div>
+        {% endfor %}
+
+    </div>
+  </div>
+          <form role="form" method="POST" action="{% url 'send_direct' %}" style="min-width:100%; color:black;">
+            {% csrf_token %}
+            <input class="hide" style="min-width:100%;" type="hidden"name="to_user" value="{{ active_direct }}" placeholder="Add a Message"style="color:black;">
+            <div class="d-flex" style="min-width:100%; color:black;">
+            <textarea class="textarea" style="color: black;" name="body" style="min-width:100%;" placeholder="Add a message"></textarea>
+             <button type="submit" name="action" class="btn btn-success" style="width:150px; text-align:center;">Send</buttom> 
+            </div> 
+          </form> 
+ <br>
+ <br>
+ <br> 
+{% endblock %}

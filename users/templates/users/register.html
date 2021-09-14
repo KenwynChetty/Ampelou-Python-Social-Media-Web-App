@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .platformlogo {
+        float: right;
+        margin-top: -675px;
+    }
+
+    .plogo {
+        width: 400px;
+        height: 550px;
+    }
+
+    @media (max-width: 767.98px) {
+        .platformlogo {
+            margin-top: 5px;
+            float: none;
+            display: none;
+        }
+
+        .plogo {
+            max-width: 300px;
+            max-height: 400px;
+            margin-top: 10px;
+        }
+    }
+</style>
+<div class="container">
+    <form method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
+        {% csrf_token %}
+        <fieldset class="form-group"style="border: none;">
+            <legend class="mb-3 white-important">
+                Register a new account
+            </legend>
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2 btn btn-primary" href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+    <span class="platformlogo">
+        <img class="plogo" src="{% static 'blog/platformlogo.png' %}">
+    </span>
+</div>
+<br>
+<br>
+{% endblock content %}

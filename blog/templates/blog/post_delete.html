@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="container">
+    <form method="POST" class="col-6 no-padding">
+        {% csrf_token %}
+        <fieldset class="form-group white-important">
+            Do you really want to delete
+        </fieldset>
+        <p class="bg-steel p-2"
+           style="border: 1px solid white; border-radius: 4px; word-wrap: break-word;">
+           {% if post.pic.url|slice:"-3:" == 'jpg' or post.pic.url|slice:"-3:" == 'png' %}
+                      <a href="{% url 'post-detail' post.id %}" style="padding: 0;">
+                        <img src="{{ post.pic.url }}" style="width: 100%; padding: 0;" alt="Placeholder image">
+                      </a>
+                  {% else %}
+                    <a href="{% url 'post-detail' post.id %}">
+                      <video width="100%" controls="controls" preload="metadata">
+                        <source src="{{ post.pic.url }}" type="video/mp4">        
+                      </video>      
+                    </a>
+                  {% endif %}
+                  <p>{{post.caption}}</p>
+        </p>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Yes</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

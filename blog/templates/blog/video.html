@@ -1,0 +1,479 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+<!-- partial:index.partial.html -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://landsurveyorsunited.github.io/cssfiles/isw/youtubegallerywall.css" />
+<style>
+	.content-section {
+		display: none;
+	}
+</style>
+{% block content %}
+<!--[if lte IE 8]>
+
+	<style>
+	/* IE8 and below specific CSS */
+
+	ul.youtubewall li .thumbwrap:after{
+		display: none; /* hide thumbnail overlay and show thumbnail icons by default */
+	}
+
+	</style>
+
+<![endif]-->
+<style>
+	/* Style tab links */
+	.tablink {
+		background-color: #000;
+		color: white;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		font-size: 17px;
+		width: 50%;
+	}
+
+	.tablink:hover {
+		background-color: #000;
+	}
+
+	/* Style the tab content (and add height:100% for full page content) */
+	.tabcontent {
+		color: white;
+		display: none;
+		padding: 25px 5px;
+		height: 100%;
+	}
+
+	h4 {
+		font-family: 'Cookie';
+	}
+
+	.row>.column {
+		padding: 0px 8px;
+	}
+
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.column {
+		float: left;
+		width: 50%;
+		padding-bottom: 5px;
+	}
+
+	/* The Modal (background) */
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		padding-top: 100px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-color: black;
+	}
+
+	/* Modal Content */
+	.modal-content {
+		position: relative;
+		background-color: black;
+		margin: auto;
+		padding: 0;
+		width: 90%;
+		max-width: 1200px;
+		max-height: 100%;
+		height: 100%;
+	}
+
+	/* The Close Button */
+	.close {
+		color: white;
+		position: absolute;
+		top: 75px;
+		right: 25px;
+		font-size: 35px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: #999;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.mySlides {
+		display: none;
+	}
+
+	.cursor {
+		cursor: pointer;
+	}
+
+	/* Next & previous buttons */
+	.prev,
+	.next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		padding: 16px;
+		margin-top: -50px;
+		color: white;
+		font-weight: bold;
+		font-size: 20px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+		background-color: rgba(29, 187, 29, 0.699);
+	}
+
+	/* Number text (1/3 etc) */
+	.numbertext {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+	}
+
+	img {
+		margin-bottom: 5px;
+	}
+
+	.caption-container {
+		text-align: center;
+		background-color: black;
+		padding: 2px 16px;
+		color: white;
+	}
+
+	.demo {
+		opacity: 0.6;
+	}
+
+	.active,
+	.demo:hover {
+		opacity: 1;
+	}
+
+	ul.youtubewall {
+		background: black;
+	}
+
+	img.hover-shadow {
+		transition: 0.3s;
+	}
+
+	.hover-shadow:hover {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	.livelogo {
+		width: 100px;
+		max-height: 300px;
+		border-radius: 25%;
+	}
+
+	#Home {
+		background-color: #000;
+	}
+
+	#News {
+		background-color: #000000;
+	}
+
+	.content-section {
+		min-width: 100%;
+		max-width: 100%;
+	}
+
+	@media (max-width: 800px) {
+
+		/* FIRST breaking point */
+		.modal-content {
+			width: 100%;
+			/* reduce to 3 columns of thumbnails */
+			height: 100%;
+		}
+	}
+
+	@media (max-width: 480px) {
+
+		/* SECOND breaking point */
+		.fbn {
+			margin-top: 100px;
+		}
+
+		.modal-content {
+			margin-top: 25px;
+			width: 100%;
+			/* reduce to 3 columns of thumbnails */
+			height: 100%;
+			align-content: center;
+		}
+
+		.livelogo {
+			width: 100%;
+			max-height: 100px;
+		}
+	}
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="https://landsurveyorsunited.github.io/cssfiles/isw/youtubegallerywall.js">
+
+	/***********************************************
+	* YouTube Gallery Wall - (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+	* Please keep this notice intact
+	* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+	***********************************************/
+
+</script>
+
+<script>
+
+	jQuery(function () { // on DOM load
+		//syntax $(selector).youtubegallery()
+		$('#youtubelist').youtubegallery()
+		$('#youtubelist2').youtubegallery()
+		$('#youtubelist3').youtubegallery()
+		$('#youtubelist4').youtubegallery()
+		$('#youtubelist5').youtubegallery()
+		$('#youtubelist6').youtubegallery()
+		$('#youtubelist7').youtubegallery()
+		$('#youtubelist8').youtubegallery()
+		$('#youtubelist9').youtubegallery()
+		$('#youtubelist10').youtubegallery()
+		$('#youtubelist11').youtubegallery()
+		$('#youtubelist12').youtubegallery()
+		$('#youtubelist13').youtubegallery()
+		$('#youtubelist14').youtubegallery()
+		$('#youtubelist15').youtubegallery()
+	})
+
+</script>
+<button class="tablink" onclick="openPage('Home', this, 'black')">LIVE TV</button>
+<button class="tablink" onclick="openPage('News', this, 'black')" id="defaultOpen">VOD</button>
+
+<div id="Home" class="tabcontent">
+	<div class="row">
+		<div class="column">
+			<img class='livelogo' src="https://www.livenewsworld.com/wp-content/uploads/2019/12/KDTN.jpg"
+				style="width:100%;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+		</div>
+
+		<div class="column">
+			<img class='livelogo'
+				src="https://vhx.imgix.net/tbn/assets/904e05a3-be7a-4173-b45d-e636dc8ce24b-6179da68.png?auto=format%2Ccompress&fit=crop&h=360&q=70&w=640"
+				style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+		</div>
+	</div>
+
+
+	<div id="myModal" class="modal">
+		<span class="close cursor" onclick="closeModal()">&times;</span>
+		<div class="modal-content">
+
+			<div class="mySlides">
+				<iframe
+					style="position: absolute; height: 0px; width: 0px; min-width: 100%; max-width: 100%; min-height: 75%; max-height: 75%; "
+					src="https://embed.vhx.tv/videos/632434?api=1&autoplay=1&title=0" frameborder="0"
+					allowfullscreen></iframe>
+			</div>
+
+			<div class="mySlides">
+				<iframe
+					style="position: absolute; height: 0px; width: 0px; min-width: 100%; max-width: 100%; min-height: 80%; max-height: 80%;"
+					src="https://livestream.com/accounts/27460990/events/8787764/player?width=960&height=540&enableInfoAndActivity=true&defaultDrawer=feed&autoPlay=true&mute=false"
+					frameborder="0" allowfullscreen></iframe>
+			</div>
+
+
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+			<div class="caption-container">
+				<p id="caption"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="News" class="tabcontent" style="background-color: black;">
+	<ul id="youtubelist">
+		<h4>Katie Souza</h4>
+		{% for katie in katie_souza %}
+		<li><a href="{{ katie.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist2">
+		<h4>Michael Todd</h4>
+		{% for michael in michael_todd %}
+		<li><a href="{{ michael.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist3">
+		<h4>Afrika Mhlophe</h4>
+		{% for afrika in afrika_mhlophe %}
+		<li><a href="{{ afrika.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist4">
+		<h4>John & Lisa Bevere</h4>
+		{% for jbevere in john_bevere %}
+		<li><a href="{{ jbevere.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist5">
+		<h4>TD Jakes</h4>
+		{% for tdjake in td_jakes %}
+		<li><a href="{{ tdjake.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist6">
+		<h4>Steven Furtick</h4>
+		{% for stevenfurtick in furtick %}
+		<li><a href="{{ stevenfurtick.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist7">
+		<h4>Todd White</h4>
+		{% for toddwhite in todd_white %}
+		<li><a href="{{ toddwhite.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist8">
+		<h4>Joyce Meyer</h4>
+		{% for meyer in joyce_meyer %}
+		<li><a href="{{ meyer.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist9">
+		<h4>John Gray</h4>
+		{% for johngray in gray %}
+		<li><a href="{{ johngray.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist10">
+		<h4>Joseph Prince</h4>
+		{% for JPrince in joseph_p %}
+		<li><a href="{{ JPrince.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist11">
+		<h4>Graig Groeschel</h4>
+		{% for Graig in groeschel %}
+		<li><a href="{{ Graig.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist12">
+		<h4>Ted Shuttleworth jr.</h4>
+		{% for tedjr in shuttleworth_jr%}
+		<li><a href="{{ tedjr.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist13">
+		<h4> Paula White-Cain </h4>
+		{% for paulawhite in white_cain %}
+		<li><a href="{{ paulawhite.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist14">
+		<h4>Dr Myles Munroe</h4>
+		{% for myles in munroe %}
+		<li><a href="{{ myles.link }}"></a></li>
+		{% endfor %}
+	</ul>
+	<ul id="youtubelist15">
+		<h4>Kenneth Copeland</h4>
+		{% for kenneth in copeland %}
+		<li><a href="{{ kenneth.link }}"></a></li>
+		{% endfor %}
+	</ul>
+</div>
+
+
+<!-- partial -->
+<script>
+	function openPage(pageName, elmnt, color) {
+		let tab, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (tab = 0; tab < tabcontent.length; tab++) {
+			tabcontent[tab].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablink");
+		for (tab = 0; tab < tablinks.length; tab++) {
+			tablinks[tab].style.backgroundColor = "";
+		}
+		document.getElementById(pageName).style.display = "block";
+		elmnt.style.backgroundColor = color;
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+
+</script>
+<script>
+	function openModal() {
+		document.getElementById("myModal").style.display = "block";
+	}
+
+	function closeModal() {
+		document.getElementById("myModal").style.display = "none";
+	}
+
+	let slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+		let sli;
+		let slides = document.getElementsByClassName("mySlides");
+		let dots = document.getElementsByClassName("demo");
+		let captionText = document.getElementById("caption");
+		if (n > slides.length) { slideIndex = 1 }
+		if (n < 1) { slideIndex = slides.length }
+		for (sli = 0; sli < slides.length; sli++) {
+			slides[sli].style.display = "none";
+		}
+		for (sli = 0; sli < dots.length; sli++) {
+			dots[sli].className = dots[sli].className.replace(" active", "");
+		}
+		slides[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " active";
+		captionText.innerHTML = dots[slideIndex - 1].alt;
+	}
+</script>
+
+
+{% endblock %}

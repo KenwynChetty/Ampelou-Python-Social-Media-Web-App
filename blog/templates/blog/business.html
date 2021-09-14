@@ -1,0 +1,338 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="video-bg">
+        <div class="video-section-business">
+            <h1>Ampelou Business</h1>
+            <div class="video-container-business">
+                <video autoplay loop muted style="width: 1920px;">
+                    <source src="{% static 'blog/vbg.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+</div>
+
+  
+  <!-- Header with full-height image -->
+  <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding: 20px 40px;">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+  </header>
+  
+  <!-- About Section -->
+  <div class="w3-container" style="padding:12px 16px" id="about">
+    <h3 class="w3-center">ABOUT THE COMPANY</h3>
+    <p class="w3-center w3-large">Key features of our company</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+        <p class="w3-large">Websites & Apps </p>
+        <p>Ampelou Designs As Well As Builds Websites And Applications, Tailored To You And Your Business</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Brand Awareness</p>
+        <p>Ampelou Specializes In Building Brand Awareness Using Ad Compains Via Social Media Platforms And Google</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Graphic Design</p>
+        <p>Ampelou Provides Graphic Design Services For Personal And Business Needs, To Help With You Media Compains</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Media Support</p>
+        <p>Ampelou Provides Media Support As Well As Social Media Management And Marketing To Help Boost Your Social Media Presence</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Promo Section - "We know design" -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        <h3>We know design.</h3>
+        <p>Ampelou is a media solutions company, that is  here to meet your other media requirement needs. Whether you need to help build or boost your brand or social presence, Ampelou (pty) Ltd is the media solutions company for you.<br>Ampelou was founded in 2019 by Kenwyn Kendyll Chetty. The company was birth whilst Kenwyn was still in Bible School.</p>
+        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+      </div>
+      <div class="w3-col m6">
+        <video class="video-ad" width="400" autoplay muted loop>
+            <source src="{% static 'blog/aad.mp4' %}" type="video/mp4">
+                
+           </video>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Team Section -->
+  <div class="w3-container" style="padding:128px 16px" id="team">
+    <h3 class="w3-center">THE TEAM</h3>
+    <p class="w3-center w3-large">The ones who runs this company</p>
+    <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="{% static 'blog/em1.png' %}" alt="Kenwyn" style="width:100%">
+          <div class="w3-container">
+            <h3>Kenwyn Chetty</h3>
+            <p class="w3-opacity">CEO & Founder</p>
+            <p>Entrepreneur, Web & Software Developer, Graphic Designer, Crypto Trading, Video-Editor, TEFL Teacher, & Social Media Manage & Affiliate Marketer</p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="{% static 'blog/em2.png' %}" alt="Sagree" style="width:100%">
+          <div class="w3-container">
+            <h3>Sagree Mackenzie</h3>
+            <p class="w3-opacity">Chief Financial Officer</p>
+            <p>Qualified Accountant, Former Plant Manager For AFGRI Milling, Chief Executive Officer & Head Pastor Of Kingdom Faith Connection Ministries. </p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="{% static 'blog/em3.png' %}" alt="Derek" style="width:100%">
+          <div class="w3-container">
+            <h3>Derek Kaboyo</h3>
+            <p class="w3-opacity">Chief Operations Officer</p>
+            <p>Networking & Network Security, CISCO Qualified, COO and Co-Founder of Ampelou Digital Media, Assistant Web Developer Of Ampelou Platform </p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-card">
+          <img src="{% static 'blog/em4.png' %}" alt="Dan" style="width:100%">
+          <div class="w3-container">
+            <h3>Bongani Putsoane</h3>
+            <p class="w3-opacity">Ampelou Brand Ambassador</p>
+            <p> CEO and Founder of Pegmovement and PegFoundation Gap Year Programe. Social Media Influencer, YouTuber, Social Media Marketer</p>
+            <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Promo Section "Statistics" -->
+  <div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+    <div class="w3-quarter">
+      <span class="w3-xxlarge">5+</span>
+      <br>Partners
+    </div>
+    <div class="w3-quarter">
+      <span class="w3-xxlarge">20+</span>
+      <br>Projects Done
+    </div>
+    <div class="w3-quarter">
+      <span class="w3-xxlarge">58+</span>
+      <br>Happy Clients
+    </div>
+    <div class="w3-quarter">
+      <span class="w3-xxlarge">170+</span>
+      <br>Meetings
+    </div>
+  </div>
+  
+  <!-- Work Section -->
+  <div class="w3-container" style="padding:128px 16px" id="work">
+    <h3 class="w3-center">MY QUALIFICATIONS</h3>
+    <p class="w3-center w3-large">My Certification In Software Development</p>
+  
+    <div class="w3-row-padding" style="margin-top:64px">
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/html.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/css.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A phone">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/javascript.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A drone">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/python3.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Soundbox">
+      </div>
+    </div>
+  
+    <div class="w3-row-padding w3-section">
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/pythonadvanced.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tablet">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/java.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A camera">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/C++.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A typewriter">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="{% static 'blog/BlockChain.png' %}" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A tableturner">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
+  </div>
+  
+  <!-- Skills Section -->
+  <div class="w3-container w3-light-grey w3-padding-64">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        <h3>Our Skills.</h3>
+        <p>Web Development, Application Development, Web Architecture.</p>
+        <p>Graphic Design, Video-Editing, VideoGraphy, Photography, <br>
+        Social Media Marketing, Social Media Manager, Affiliate Marketing</p>
+      </div>
+      <div class="w3-col m6">
+        <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>Photography</p>
+        <div class="w3-grey">
+          <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-desktop w3-margin-right"></i>Web Design</p>
+        <div class="w3-grey">
+          <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-photo w3-margin-right"></i>Photoshop</p>
+        <div class="w3-grey">
+          <div class="w3-container w3-dark-grey w3-center" style="width:75%">75%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Pricing Section -->
+  <div class="w3-container w3-center w3-dark-grey" style="padding:128px 16px" id="pricing">
+    <h3>WEBSITE DEVELOPMENT & HOSTING</h3>
+    <p class="w3-large">Choose a pricing plan that fits your needs.</p>
+    <div class="w3-row-padding" style="margin-top:64px">
+      <div class="w3-third w3-section">
+        <ul class="w3-ul w3-white w3-hover-shadow">
+          <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16"><b>3 Pages</b> Websites</li>
+          <li class="w3-padding-16"><b>Python</b> Backend</li>
+          <li class="w3-padding-16"><b>1</b> Domains</li>
+          <li class="w3-padding-16"><b>PostgreSQL</b> Database</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-wide">R 500</h2>
+            <span class="w3-opacity">Per Month x 12 Months</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-third">
+        <ul class="w3-ul w3-white w3-hover-shadow">
+          <li class="w3-green w3-xlarge w3-padding-48">Pro</li>
+          <li class="w3-padding-16"><b>5 Pages</b> Websites</li>
+          <li class="w3-padding-16"><b>Python</b> Backend</li>
+          <li class="w3-padding-16"><b>1</b> Domains</li>
+          <li class="w3-padding-16"><b>PostgreSQL</b> Database</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-wide">R 750</h2>
+            <span class="w3-opacity">per month x 12 Months</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-third w3-section">
+        <ul class="w3-ul w3-white w3-hover-shadow">
+          <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+          <li class="w3-padding-16"><b>10+ Pages</b> Websites</li>
+          <li class="w3-padding-16"><b>Python</b> Backend</li>
+          <li class="w3-padding-16"><b>1</b> Domains</li>
+          <li class="w3-padding-16"><b>PostgreSQL</b> Database</li>
+          <li class="w3-padding-16">
+            <h2 class="w3-wide">R1500</h2>
+            <span class="w3-opacity">per month x 24 Months</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-black w3-padding-large">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contact Section -->
+  <div class="w3-container w3-light-grey" style="padding:100px 16px" id="contact">
+    <h3 class="w3-center">CONTACT</h3>
+    <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+    <div style="margin-top:48px">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> 16p Gradiceps Street, Danabay, MosselBay, 6510</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +27 (0) 66 220 3972</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: ampv1.herokuapp@gmail.com</p>
+      <br>
+      <form action="" target="">
+        {% csrf_token %}
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-border" type="email" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+      <!-- Image of location/map -->
+      <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=16p%20Grandiceps%20Street%2C%20Danabay%20MosselBay&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+  </footer>
+   
+  <script>
+  // Modal Image Gallery
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+  
+  
+  // Toggle between showing and hiding the sidebar when clicking the menu icon
+  var mySidebar = document.getElementById("mySidebar");
+  
+  function w3_open() {
+    if (mySidebar.style.display === 'block') {
+      mySidebar.style.display = 'none';
+    } else {
+      mySidebar.style.display = 'block';
+    }
+  }
+  
+  // Close the sidebar with the close button
+  function w3_close() {
+      mySidebar.style.display = "none";
+  }
+  </script>
+    
+{% endblock  %}

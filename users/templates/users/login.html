@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .platformlogo {
+        float: right;
+        margin-top: -350px;
+    }
+
+    .plogo {
+        width: 500px;
+        height: 680px;
+    }
+
+    @media (max-width: 767.98px) {
+        .platformlogo {
+            margin-top: 5px;
+            float: none;
+        }
+
+        .plogo {
+            max-width: 300px;
+            max-height: 400px;
+            margin-top: 10px;
+        }
+    }
+</style>
+<div class="container">
+    <form method="POST" class="col-12 col-md-6 pl-3 pr-3 pl-md-0 pr-md-0">
+        {% csrf_token %}
+        <fieldset class="form-group"style="border: none;">
+            <legend class="mb-3 white-important">
+                Login To Ampelou
+            </legend>
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group"style="text-align: center;">
+            <button class="btn btn-outline-primary" type="submit">Login</button>
+        </div>
+    </form>
+    <div class="pt-3">
+        <small class="text-muted">
+            Do you need an account? <a class="btn btn-primary ml-2" href="{% url 'register-users' %}">Sign up</a>
+        </small>
+    </div>
+    <div class="pt-3">
+        <small class="text-muted">
+            Forgot your password? <a class="btn btn-warning ml-2" href="mailto:ampelou.pty.ltd@gmail.com">Email Admin</a>
+        </small>
+    </div>
+    <span class="platformlogo">
+        <img class="plogo" src="{% static 'blog/platformlogo.png' %}">
+    </span>
+</div>
+{% endblock content %}

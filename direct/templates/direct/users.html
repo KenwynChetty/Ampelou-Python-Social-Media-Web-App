@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+{% for user in user_pro %}
+<div class="search-result-profile">
+    <div style="padding-left: 0px !important;" class="col-8 no-padding d-flex align-items-center">
+       <img class="rounded-circle mr-2" style="width: 40px; height: 40px;" src="{{ user.profile.image.url }}">
+       <a class="mr-2 white-important">
+           {{ user.username }}
+       </a>
+   </div>
+   <a href="{% url 'newconversation' user.username %}" class="btn btn-primary" style="float: left;">message</a>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,36 @@
+.ap-nav-icon-bar {
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 2px 4px 8px 6px rgba(29, 187, 29, 0.699);
+        z-index: 2000;
+        display: none;
+      }
+.ap-nav-icon-bar a {
+        float: left;
+        width: 20%;
+        text-align: center;
+        padding: 10px 0;
+        transition: all 0.3s ease;
+        color: whitesmoke;
+        font-size: 28px;
+      }
+      
+      .ap-nav-icon-bar a:hover {
+        background-color: #4CAF50;
+      }
+      
+      .ap-nav-icon-bar-active {
+        background-color: #000000;
+      }
+      @media screen and (max-width: 600px) {
+         .ap-nav-icon-bar a {
+          font-size: 25px;
+        }
+        .ap-nav-icon-bar {
+            display: block;
+        }
+      }
+      /* Bottom Nav End */
